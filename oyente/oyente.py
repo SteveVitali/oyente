@@ -32,7 +32,10 @@ def has_dependencies_installed():
         import z3
         import z3.z3util
         z3_version =  z3.get_version_string()
-        tested_z3_version = '4.5.1'
+        
+        # Actual tested version is 4.5.1, but only 4.5.0 is available online for download
+        # so we are going to treat 4.5.0 as the tested z3 version to avoid the logger warning
+        tested_z3_version = '4.5.0'
         if compare_versions(z3_version, tested_z3_version) > 0:
             logging.warning("You are using an untested version of z3. %s is the officially tested version" % tested_z3_version)
     except:
