@@ -2365,6 +2365,9 @@ def closing_message():
             of.write(json.dumps(results, indent=1))
         log.info("Wrote results to %s.", result_file)
 
+    if global_params.JSON_RESULT:
+        print json.dumps(results, indent=1);
+
 class TimeoutError(Exception):
     pass
 
